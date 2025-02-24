@@ -66,6 +66,7 @@ export default function RecordAudio({profile}:{profile:any}) {
   
   return (
     <div className='w-1/2 flex flex-col items-center justify-center p-5 mt-2'>
+    {!isLoading && 
       <AudioRecorder
         onRecordingComplete={addAudioElement}
         audioTrackConstraints={{
@@ -87,6 +88,7 @@ export default function RecordAudio({profile}:{profile:any}) {
          showVisualizer={true}
          recorderControls={recorderControls} 
       />
+      }
       <br />
       {isLoading && !error && <div className='flex flex-col items-center justify-center gap-2'><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div></div>}
       {!isLoading && audioBlob && audioUrl && (
